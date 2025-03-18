@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0803</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="map">
+            <!-- Mũi tên trên -->
+            <div class="icon">
+                <i class="fas fa-caret-down"></i>
+            </div>
+        
+            <!-- Ô nhập tên -->
+            <input type="text" id="nameInput" placeholder="NHẬP TÊN CỦA BẠN">
+        
+            <!-- Nút "Tiếp" -->
+            <div class="button-container">
+                <button class="btn" id="nextButton">Tiếp</button>
+            </div>
+
+            <script>
+                document.getElementById("nextButton").addEventListener("click", function () {
+                    let name = encodeURIComponent(document.getElementById("nameInput").value.trim());
+                    if (name) {
+                        window.location.href = `connect.html?name=${name}`;
+                    }
+                });
+                document.getElementById("nameInput").addEventListener("keypress", function (event) {
+                    if (event.key === "Enter") {
+                        document.getElementById("nextButton").click();
+                    }
+                });
+            </script>
+
+            <!-- Mũi tên dưới -->
+            <div class="icon">
+                <i class="fas fa-caret-up"></i>
+            </div>
+        </div>
+        
+        <!-- Ảnh logo -->
+        <div class="footer">
+            <img src="logo.png">
+        </div>
+    </div>
+</body>
+</html>

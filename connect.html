@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0803</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1><span id="username"></span> bạn nhận được món quà nhỏ này từ ai?</h1>
+        
+        <div class="message-box">
+            <button class="btn choice-btn" onclick="handleChoice('lover')">Người yêu</button>
+            <button class="btn choice-btn" onclick="handleChoice('family')">Người thân</button>
+        </div>
+
+        <div class="footer">
+            <img src="logo.png">
+        </div>
+    </div>
+
+    <script>
+        // Lấy tên từ URL (nếu có)
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("name") || "Bạn";
+        document.getElementById("username").textContent = `${name} ơi,`;
+
+        // Chuyển trang kèm theo loại người nhận
+        function handleChoice(choice) {
+            window.location.href = `result.html?name=${encodeURIComponent(name)}&type=${choice}`;
+        }
+    </script>
+</body>
+</html>

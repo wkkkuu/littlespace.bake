@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0803</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gửi <span id="username"></span> yêu dấu,</h1>
+
+        <div class="message">
+            <p id="greeting"></p>
+        </div>
+
+        <div class="footer">
+            <img src="logo.png">
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2/dist/confetti.browser.min.js"></script>
+    <script>
+        window.onload = function () {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    confetti({
+                        particleCount: 100,
+                        spread: 70,
+                        origin: { y: 0.6 }
+                    });
+                }, i * 500);
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("name") || "Bạn";
+        const type = params.get("type");
+
+        document.getElementById("username").textContent = name;
+
+        // Lời chúc cho từng đối tượng
+        const greetingsLover = [
+            "Em là món quà quý giá nhất mà cuộc sống đã ban tặng cho anh. Chúc em 8/3 rạng rỡ như những bông hoa và hạnh phúc như chính nụ cười của em.",
+            "Gửi người yêu dấu Em là món quà quý giá nhất mà cuộc sống đã ban tặng cho anh. Chúc em 8/3 rạng rỡ như những bông hoa và hạnh phúc như chính nụ cười của em.",
+            "Ngày 8/3, anh chẳng hứa sẽ hái sao trên trời, nhưng anh hứa sẽ nắm chặt tay em, đi qua mọi ngày tháng, dù là bình yên hay giông tố.",
+            "Nếu có 1000 bông hoa đẹp nhất, anh cũng nguyện chỉ chọn em — đoá hoa duy nhất trong lòng anh. Chúc em một ngày 8/3 lấp lánh như nụ cười em trao.",
+            "Gửi người yêu dấu Nếu có 1000 bông hoa đẹp nhất, anh cũng nguyện chỉ chọn em — đoá hoa duy nhất trong lòng anh. Chúc em một ngày 8/3 lấp lánh như nụ cười em trao.",
+            "Em là đoá hoa rực rỡ nhất trong khu vườn trái tim anh. Chúc em ngày 8/3 ngập tràn yêu thương và hạnh phúc, như cách em làm rạng rỡ cả thế giới của anh."
+        ];
+
+        const greetingsFamily = [
+            "chúc cho người nhận được tin nhắn này mãi luôn trẻ đẹp và hạnh phúc. Cảm ơn vì đã luôn là người giữ lửa, mang đến sự ấm áp và yêu thương cho nhau nhé! 💕💕💕",
+            "cảm ơn vì đã ở lại và làm chỗ dựa cho nhau mỗi lúc khó khăn. Hãy luôn tươi tắn và xinh đẹp như những bông hoa này nhé! 💐💐💐"
+        ];
+
+        // Chọn danh sách phù hợp
+        const greetings = type === "lover" ? greetingsLover : greetingsFamily;
+
+        // Hiển thị lời chúc ngẫu nhiên
+        document.getElementById("greeting").textContent = greetings[Math.floor(Math.random() * greetings.length)];
+    </script>
+</body>
+</html>

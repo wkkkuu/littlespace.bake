@@ -1,0 +1,217 @@
+/* Định dạng tổng thể */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url('bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Comic Neue', sans-serif;
+    
+    display: flex;
+    align-items: center;  
+    justify-content: center; 
+    height: 100vh;  
+    text-align: center;
+    overflow: hidden; 
+}
+
+/* Khung chính */
+.container {
+    width: 90%;
+    max-width: 320px; 
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(15px); 
+    border: 2px solid rgba(255, 64, 129, 0.5); /* Viền hồng nhẹ */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(255, 64, 129, 0.2);
+}
+
+.map {
+    margin-top: 50px;
+}
+
+/* Icon mũi tên */
+.icon i {
+    font-size: 28px;
+    color: black;
+    margin: 15px 0;
+}
+
+h1 {
+    margin-top: 44px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #ff4081; /* Màu hồng đậm hơn */
+    background: white; /* Nền nhẹ */
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: inline-block;
+    border: 2px solid rgba(255, 64, 129, 0.5); /* Viền hồng nhẹ */
+    box-shadow: 0 4px 10px rgba(255, 64, 129, 0.2);
+    animation: fadeIn 1s ease-in-out, glow 1.5s infinite alternate;
+}
+
+/* Hiệu ứng xuất hiện */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hiệu ứng phát sáng nhẹ */
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px rgba(255, 64, 129, 0.4);
+    }
+    to {
+        box-shadow: 0 0 15px rgba(255, 64, 129, 0.6);
+    }
+}
+
+/* Ô nhập */
+input[type="text"] {
+    font-size: 16px;
+    padding: 12px;
+    width: 100%;
+    border: none; 
+    border-radius: 25px;
+    outline: none;
+    text-align: center;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.8); 
+    backdrop-filter: blur(10px);
+}
+
+input[type="text"]:focus {
+    box-shadow: 0 0 12px rgba(255, 105, 180, 0.5);
+}
+
+/* Nút bấm */
+.btn {
+    background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Khối chứa nút */
+.button-container {
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+/* Ô lời nhắn */
+.message-box {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; /* Xếp các nút dọc */
+    align-items: center;
+    gap: 15px; /* Khoảng cách giữa các nút */
+}
+
+.message {
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    max-width: 400px;
+    margin: 30px auto 0;
+    overflow: hidden;
+    animation: openLetter 1s ease-in-out;
+}
+
+.message:before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 40px;
+    background: #ff6ec4;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.message p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff4081;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 0.5s forwards;
+}
+
+/* Hiệu ứng mở thư */
+@keyframes openLetter {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Hiệu ứng xuất hiện text */
+@keyframes fadeIn {
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Nếu cần khoảng cách rộng hơn */
+.choice-btn {
+    background: white; /* Nền hồng nhẹ */
+    color: #ff4081; /* Màu chữ hồng đậm */
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 20px;
+    width: 80%;
+    border: 2px solid rgba(255, 64, 129, 0.5); /* Viền hồng */
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(255, 64, 129, 0.2);
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    transition: 0.3s ease;
+    animation: fadeIn 1s ease-in-out, glow 1.5s infinite alternate;
+}
+
+/* Hiệu ứng hover */
+.choice-btn:hover {
+    color: white;
+    background: rgba(255, 64, 129, 0.3);
+    box-shadow: 0 0 15px rgba(255, 64, 129, 0.6);
+}
+
+/* Hiệu ứng khi nhấn */
+.choice-btn:active {
+    transform: scale(0.95);
+}
+
+/* Footer */
+.footer img {
+    width: 100px;
+    height: auto;
+}
